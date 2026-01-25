@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+body{
+    font-family: "Roboto", sans-serif;
+}
+
+
+.con{
+    width: 1280px;
+    margin: auto;
+}
+.oda h4{
+    font-size: 14px;
+    font-weight: 600;
+}
+.oda p{
+    font-size: 12px;
+    font-weight: 400;
+    color: gray;
+}
+.kid::after{
+    content: '';
+    width: 50px;
+    height: 2px;
+    background: gray;
+    display: block;
+    margin-top: 8px;
+}
+.kid1::after{
+    content: '';
+    width: 260px;
+    height: 1px;
+    background: gray;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+footer li{
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 14px;
+}
