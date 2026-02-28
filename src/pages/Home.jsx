@@ -11,13 +11,11 @@ import SliderUp from '../component/SliderUp';
 
 
 function Home() {
-  
-
   return (
     <>
-    <section className='con py-6 px-2 grid grid-cols-3 bg-[#171D23] text-white text-xs'>
+    <section className='con py-6 px-2 grid md:grid-cols-3 sm:grid-cols-1 bg-[#171D23] text-white text-xs'>
       {navB.map((a)=>(
-    <div className='flex'>
+    <div className='flex' key={a.id}>
       <img className='px-4' src={a.image} alt="" />
     <div>
        <h2 className='font-bold'> {a.title}</h2>
@@ -28,14 +26,14 @@ function Home() {
      
       </section>
 
-       <section className='con grid grid-cols-[2fr_1fr_1fr] border-gray-400 border-b'>
-       <div className='grid grid-cols-[2fr_1fr] border-gray-400  border-e-0'>
+       <section className='con grid grid-cols-[2fr_1fr_1fr] sm:grid-cols-1 border-gray-400 border-b'>
+       <div className='grid md:grid-cols-[2fr_1fr] sm:grid-cols-1 border-gray-400  border-e-0'>
          <div className='border-gray-400 border-l'>
           <img className='w-[408px] bg-cover p-5' src="./sport1.jpg" alt="" />  
         <div className='px-6'>
           <h2 className='font-semibold leading-tight pb-1'>Enean mauris elit, tincidunt eget honcus ac, imperdiet at mi</h2>    
         <p className='text-xs text-gray-400 pb-3'>Post by - May 26, 2011</p>  
-        <h5 className='text-sm pb-8 text-gray-600 font-normal'>Suspendisse at libero porttitor nisi aliquet vulputate vitae at velit. Aliquam eget arcu magna, vel congue dui. Nunc ...</h5>
+        <h5 className='text-sm pb-8 text-gray-600 font-normal md:w-[90%]'>Suspendisse at libero porttitor nisi aliquet vulputate vitae at velit. Aliquam eget arcu magna, vel congue dui. Nunc ...</h5>
         </div>
        </div>
         <div className='p-5 oda'>
@@ -55,13 +53,13 @@ function Home() {
      <NewsSlider 
     title="Most popular" 
     data={mostPopular} 
-    containerClass="border-s border-gray-400" 
+    containerClass="border-s sm:hidden lg:block border-gray-400" 
   />
 
   <NewsSlider 
     title="Most viewed" 
     data={mostViewed} 
-    containerClass="border-s border-e border-gray-400" 
+    containerClass="border-s sm:hidden lg:block border-e border-gray-400" 
   />
        
        {/* most viewed ends here */}
@@ -69,9 +67,9 @@ function Home() {
        </section>
 
         {/* sport section starts here  */}
-       <section className='con grid grid-cols-[2fr_1fr_1fr] '>
+       <section className='con grid lg:grid-cols-[2fr_1fr_1fr] md:grid-cols-[2fr_grow] sm:grid-cols-1 '>
       <div className='border border-t-0 border-gray-400'>
-        <div className='flex justify-between items-center'>
+        <div className='flex justify-between items-center md:hidden lg:block'>
           <ul className='flex gap-3 pt-4 pb-6 px-2 text-gray-600 font-semibold  items-center'>
           <a className='text-[#f24d34]' href="">Sport</a>
           <a href="">Business</a>
@@ -86,18 +84,18 @@ function Home() {
         </div>
          
         <div>
-        <div className='oda grid grid-cols-3 gap-4'>
+        <div className='oda grid grid-cols-3 sm:grid-cols-1 gap-4'>
   {sport.map((item, index) => {
     const isLast = index === sport.length - 1;
 
     return (
       <div key={item.id}>
         <img 
-          className='w-[80%] px-2' 
+          className='w-[80%] px-2 md:hidden lg:block' 
           src={item.image} 
           alt={item.title} 
         />
-        <div>
+        <div className='md:hidden lg:block'>
           <h4 className='pt-3 pb-1 px-2 w-45 font-bold'>
             {item.title}
           </h4>
@@ -115,7 +113,7 @@ function Home() {
       <div className='ps-5 border-t border-gray-400'>
         <div className='flex justify-between pe-6 pt-4'>
           <h2 className='kid text-lg tracking-tight font-black'>LATEST NEWS</h2>
-        <div>
+        <div className='sm:hidden'>
         <button className='border border-gray-400 mx-2 px-1'><i class="fa-solid fa-angle-left"></i></button>
         <button className='border border-gray-400 px-1'><i class="fa-solid fa-angle-right"></i></button>
         </div>
@@ -127,10 +125,10 @@ function Home() {
     const isLast = index === latestNews.length - 1;
     
     const paddingTop = isSecond ? 'pt-6' : 'pt-3';
-    const borderClass = isLast ? '' : 'border-b border-gray-400';
+    const borderClass = isLast ? '' : 'border-b sm:border-b-0 border-gray-400';
 
     return (
-      <div key={item.id} className={`flex pb-4 ${borderClass}`}>
+      <div key={item.id} className={`flex sm:flex-col pb-4 ${borderClass}`}>
         <img 
           className={`pe-6 w-[70%] ${paddingTop}`} 
           src={item.image} 
@@ -154,16 +152,23 @@ function Home() {
         
        </div>
 
+       {/* only section for responsive for sm screen */}
+       <NewsSlider 
+    title="Most popular" 
+    data={mostPopular} 
+    containerClass="border-s sm:block hidden lg:hidden border-gray-400" 
+  />
+
     {/* latest news ends here */}
       </div>
       {/* sport section ends here  */}
       {/* editor choice section starts here */}
 
-      <div className='border-b border-gray-400'>
-        <div className='flex justify-center '>
-          <h2 className='bg-[#f24d34] justify-center items-center flex my-8 w-66 h-12 text-white font-bold '>Editor's choice</h2>
+      <div className='border-b border-gray-400 '>
+        <div className='flex justify-center  '>
+          <h2 className='bg-[#f24d34] justify-center  items-center flex my-8 w-66 h-12 text-white font-bold '>Editor's choice</h2>
         </div>
-        <div className='grid justify-center oda'>
+        <div className='grid justify-center  oda'>
   {editorChoice.map((item, index) => {
     const isLast = index === editorChoice.length - 1;
     const isFirst = index === 0;
@@ -195,6 +200,14 @@ function Home() {
       </div>
       {/* editor choice section ends here */}
 
+      
+  {/* only section for responsive for sm screen */}
+  <NewsSlider 
+    title="Most viewed" 
+    data={mostViewed} 
+    containerClass="border-s hidden sm:block lg:hidden border-e border-gray-400" 
+  />
+
       <div className='border  border-t-0 ps-8 pe-4 border-gray-400'>
         <img className='w-full flex justify-center mx-auto py-8' src="./weather.png" alt="" />
         <h2 className='kid pb-4 font-bold'>world&apos;s Stock</h2>
@@ -220,7 +233,7 @@ function Home() {
             <td className='text-red-400 px-2  '>+190.8</td>
             <td className='text-red-400 px-2  '> +1.10%</td>
           </tr>
-           <tr  className='borderborder-gray-400'>
+           <tr  className='border border-gray-400'>
             <td className='strong ps-2 pe-2  py-2 font-semibold  '>Nasdaq</td>
             <td className='px-2 '>17,511.57 </td>
             <td className='text-red-400 px-2  '>+190.8</td>
@@ -234,8 +247,8 @@ function Home() {
        <div>
   {latestR.map((a) => (
     <div key={a.id} className="kid1">
-      <div className="oda flex relative">
-        <img className="w-[90%] pe-3 pt-4" src={a.image} alt={a.title} />
+      <div className="oda flex relative ">
+        <img className="w-[90%] sm:w-[20%] pe-3 pt-4" src={a.image} alt={a.title} />
         <span className="absolute bg-red-400 bottom-0 px-4 py-2 text-white font-bold">
           {a.count}
         </span>
@@ -256,20 +269,20 @@ function Home() {
       <div className='py-6 flex-1'>
         <h2 className='font-bold'>MEDIA NEWS</h2>
       </div>
-      <div className='flex gap-4 py-6 flex-none'>
+      <div className='flex gap-4 py-6 flex-none '>
         <h3 className='text-[#f24d34] '>Latest</h3>
         <h3>Most popular</h3>
         <h3>Trending</h3>
         <h3>Most commented</h3>
       </div>
-      <div class="flex-1"></div>
+      <div class="flex-1 sm:hidden"></div>
       </section>
      {/* media news  image section starts here  */}
      
-     <section className=' con grid grid-cols-[2fr_1fr_1fr] bg-[#171D23] text-white px-4 pb-16'>
+     <section className=' con grid grid-cols-[2fr_1fr_1fr] sm:grid-cols-1 sm:pb-4  bg-[#171D23] text-white px-4 pb-16'>
   
   {mediaNews.slice(0, 1).map((item) => (
-    <div key={item.id} className='relative group overflow-hidden pe-4'>
+    <div key={item.id} className='relative group overflow-hidden pe-4 sm:mb-4'>
       <div className=''>
         <img className='w-full' src={item.image} alt={item.name} />
       </div>
@@ -285,9 +298,9 @@ function Home() {
   ))}
 
   {[mediaNews.slice(1, 3), mediaNews.slice(3, 5)].map((columnItems, colIndex) => (
-    <div key={colIndex} className='grid grid-rows-2 me-5 gap-4'>
+    <div key={colIndex} className='grid grid-rows-2 sm:grid-rows-none sm:grid-cols-[1fr_1fr]  me-5 gap-4'>
       {columnItems.map((item) => (
-        <div key={item.id} className='relative group overflow-hidden'>
+        <div key={item.id} className='relative group overflow-hidden sm:mb-4'>
           <div>
             <img className='w-full' src={item.image} alt={item.name} />
           </div>

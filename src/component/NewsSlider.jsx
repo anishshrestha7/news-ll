@@ -26,7 +26,6 @@ const NewsSlider = ({ title, data, containerClass = "" }) => {
         </div>
       </div>
 
-      {/* Swiper Implementation */}
       <div className="w-66">
         <Swiper
           onSwiper={setSwiperInstance}
@@ -37,7 +36,7 @@ const NewsSlider = ({ title, data, containerClass = "" }) => {
           className="mySwiper"
         >
           {data.map((item, index) => (
-            <SwiperSlide key={item.id}>
+            <SwiperSlide key={item.id || `news-${index}`}>
               <div
                 className={`py-4 flex items-start border-b border-gray-400 ${
                   (index + 1) % 4 === 0 ? 'border-b-0' : ''
