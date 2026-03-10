@@ -26,8 +26,8 @@ function Home() {
      
       </section>
 
-       <section className='con grid grid-cols-[2fr_1fr_1fr] sm:grid-cols-1 border-gray-400 border-b'>
-       <div className='grid md:grid-cols-[2fr_1fr] sm:grid-cols-1 border-gray-400  border-e-0'>
+       <section className='con grid lg:grid-cols-[2fr_1fr_1fr] sm:grid-cols-1 border-gray-400 border-b'>
+       <div className='grid lg:grid-cols-[2fr_1fr] sm:grid-cols-1 border-gray-400  border-e-0'>
          <div className='border-gray-400 border-l'>
           <img className='w-[408px] bg-cover p-5' src="./sport1.jpg" alt="" />  
         <div className='px-6'>
@@ -38,11 +38,11 @@ function Home() {
        </div>
         <div className='p-5 oda'>
         <h4 >Ursus senectus libero porttitor</h4>
-        <p className='border-b pb-3 pt-1 border-gray-400'>Suspendisse at libero porttitor nisi</p>
+        <p className='border-b sm:w-[90%] pb-3 pt-1 border-gray-400'>Suspendisse at libero porttitor nisi</p>
         <h4 className='pt-3'>Aenean vehicula aliquam sodales</h4>
-        <p className='border-b pb-3 pt-1 border-gray-400'>Suspendisse at libero porttitor nisi</p>
+        <p className='border-b sm:w-[90%] pb-3 pt-1 border-gray-400'>Suspendisse at libero porttitor nisi</p>
         <h4 className='pt-3'>Aliquam lobortis cursus vulputate</h4>
-        <p className='border-b pb-3 pt-1 border-gray-400'>Suspendisse at libero porttitor nisi	</p>
+        <p className='border-b sm:w-[90%] pb-3 pt-1 border-gray-400'>Suspendisse at libero porttitor nisi	</p>
         <h4 className='pt-3'>Mauris ut mauris in dictum neque</h4>
         <p className='pb-3 pt-1'>Suspendisse at libero porttitor nisi</p>
         
@@ -69,7 +69,7 @@ function Home() {
         {/* sport section starts here  */}
        <section className='con grid lg:grid-cols-[2fr_1fr_1fr] md:grid-cols-[2fr_grow] sm:grid-cols-1 '>
       <div className='border border-t-0 border-gray-400'>
-        <div className='flex justify-between items-center md:hidden lg:block'>
+        <div className='flex justify-between items-center md:hidden lg:block lg:flex'>
           <ul className='flex gap-3 pt-4 pb-6 px-2 text-gray-600 font-semibold  items-center'>
           <a className='text-[#f24d34]' href="">Sport</a>
           <a href="">Business</a>
@@ -84,7 +84,7 @@ function Home() {
         </div>
          
         <div>
-        <div className='oda grid grid-cols-3 sm:grid-cols-1 gap-4'>
+        <div className='oda grid lg:grid-cols-3 sm:grid-cols-1 gap-4'>
   {sport.map((item, index) => {
     const isLast = index === sport.length - 1;
 
@@ -113,13 +113,13 @@ function Home() {
       <div className='ps-5 border-t border-gray-400'>
         <div className='flex justify-between pe-6 pt-4'>
           <h2 className='kid text-lg tracking-tight font-black'>LATEST NEWS</h2>
-        <div className='sm:hidden'>
+        <div className='sm:hidden md:block'>
         <button className='border border-gray-400 mx-2 px-1'><i class="fa-solid fa-angle-left"></i></button>
         <button className='border border-gray-400 px-1'><i class="fa-solid fa-angle-right"></i></button>
         </div>
         </div>
 
-        <div className='pt-4 pb-4 w-150'>
+        <div className='pt-4 pb-4 xs:w-60 w-150'>
   {latestNews.map((item, index) => {
     const isSecond = index === 1;
     const isLast = index === latestNews.length - 1;
@@ -128,7 +128,7 @@ function Home() {
     const borderClass = isLast ? '' : 'border-b sm:border-b-0 border-gray-400';
 
     return (
-      <div key={item.id} className={`flex sm:flex-col pb-4 ${borderClass}`}>
+      <div key={item.id} className={`flex xl:flex-row xs:flex-col pb-4 ${borderClass}`}>
         <img 
           className={`pe-6 w-[70%] ${paddingTop}`} 
           src={item.image} 
@@ -248,7 +248,7 @@ function Home() {
   {latestR.map((a) => (
     <div key={a.id} className="kid1">
       <div className="oda flex relative ">
-        <img className="w-[90%] sm:w-[20%] pe-3 pt-4" src={a.image} alt={a.title} />
+        <img className="lg:w-[90%] xs:w-[20%] pe-3 pt-4" src={a.image} alt={a.title} />
         <span className="absolute bg-red-400 bottom-0 px-4 py-2 text-white font-bold">
           {a.count}
         </span>
@@ -265,58 +265,56 @@ function Home() {
        </section>
        {/* latest reviews section ends here */}
        {/* media news section starts here */}
-      <section className='bg-[#171D23] con text-white px-4 flex justify-between'>
-      <div className='py-6 flex-1'>
-        <h2 className='font-bold'>MEDIA NEWS</h2>
-      </div>
-      <div className='flex gap-4 py-6 flex-none '>
-        <h3 className='text-[#f24d34] '>Latest</h3>
-        <h3>Most popular</h3>
-        <h3>Trending</h3>
-        <h3>Most commented</h3>
-      </div>
-      <div class="flex-1 sm:hidden"></div>
-      </section>
-     {/* media news  image section starts here  */}
      
-     <section className=' con grid grid-cols-[2fr_1fr_1fr] sm:grid-cols-1 sm:pb-4  bg-[#171D23] text-white px-4 pb-16'>
-  
-  {mediaNews.slice(0, 1).map((item) => (
-    <div key={item.id} className='relative group overflow-hidden pe-4 sm:mb-4'>
-      <div className=''>
-        <img className='w-full' src={item.image} alt={item.name} />
-      </div>
-      <div className='absolute -bottom-12 px-4 group-hover:top-66 transition-all'>
-        <div className='bg-[#f24d34] py-1 px-2 w-16'>
-          <h4 className='font-bold'>Travel</h4>
-        </div>
-        <h2 className='pt-2 pb-1 font-bold text-xl group-hover:text-[#f24d34]'>{item.name}</h2>
-        <p className='font-medium text-sm'>{item.date}</p>
-        <h5 className='font-normal text-sm py-2 w-145'>{item.des}</h5>
-      </div>
-    </div>
-  ))}
 
-  {[mediaNews.slice(1, 3), mediaNews.slice(3, 5)].map((columnItems, colIndex) => (
-    <div key={colIndex} className='grid grid-rows-2 sm:grid-rows-none sm:grid-cols-[1fr_1fr]  me-5 gap-4'>
-      {columnItems.map((item) => (
-        <div key={item.id} className='relative group overflow-hidden sm:mb-4'>
-          <div>
-            <img className='w-full' src={item.image} alt={item.name} />
+
+     <section className='bg-[#171D23] text-white px-4 py-8 lg:py-12 con '>
+  <div className="flex flex-col md:flex-row md:items-center xs:gap-4 md:gap-52 lg:gap-82 mb-6 border-b border-gray-700 pb-2">
+    <h2 className="text-2xl font-bold uppercase pb-6 whitespace-nowrap">Media News</h2>
+    <div className="flex gap-6 xs:gap-4 text-sm pb-6 font-bold uppercase overflow-x-auto">
+      <span className="text-[#f24d34] border-b-2 border-[#f24d34] cursor-pointer">Latest</span>
+      <span className="hover:text-[#f24d34] cursor-pointer">Most Popular</span>
+      <span className="hover:text-[#f24d34] cursor-pointer">Trending</span>
+      <span className="hover:text-[#f24d34] cursor-pointer">Most Commented</span>
+    </div>
+  </div>
+
+  <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-4'>
+    
+    {mediaNews.slice(0, 1).map((item) => (
+      <div key={item.id} className='relative group overflow-hidden h-full'>
+        <img className='w-full h-full object-cover' src={item.image} alt={item.name} />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <div className='absolute bottom-4 left-4 right-4 transition-all duration-300 group-hover:bottom-15'>
+          <div className='bg-[#f24d34] py-1 px-2 inline-block mb-2'>
+            <span className='font-bold text-xs uppercase'>Travel</span>
           </div>
-          <div className='absolute -bottom-8 group-hover:top-12 transition-all px-4'>
-            <div className='bg-[#f24d34] py-1 px-2 w-14'>
-              <h4 className='font-bold text-sm'>Travel</h4>
+          <h2 className='font-bold text-xl md:text-2xl group-hover:text-[#f24d34] leading-tight'>{item.name}</h2>
+          <p className='text-xs text-gray-300 mt-1'>Post by - {item.date}</p>
+          <h5 className='font-semibold text-sm py-2 w-145 absolute -bottom-16'>{item.des}</h5>
+        </div>
+      </div>
+    ))}
+
+    {[mediaNews.slice(1, 3), mediaNews.slice(3, 5)].map((columnItems, colIndex) => (
+      <div key={colIndex} className='flex flex-col gap-4'>
+        {columnItems.map((item) => (
+          <div key={item.id} className='relative group overflow-hidden aspect-video lg:aspect-auto h-full'>
+            <img className='w-full h-full object-cover' src={item.image} alt={item.name} />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div className='absolute bottom-3 left-3 right-3 transition-all duration-300 group-hover:bottom-10'>
+              <div className='bg-[#f24d34] py-0.5 px-2 inline-block mb-1'>
+                <span className='font-bold text-[10px] uppercase'>Travel</span>
+              </div>
+              <h2 className='font-bold text-sm md:text-base group-hover:text-[#f24d34] leading-snug line-clamp-2'>{item.name}</h2>
+              <p className='text-[10px] text-gray-300'>Post by - {item.date}</p>
+              <h5 className='font-semibold text-sm py-2 w-145 -bottom-10 absolute'>{item.des}</h5>
             </div>
-            <h2 className='pt-2 pb-1 font-bold text-lg w-56 group-hover:text-[#f24d34]'>{item.name}</h2>
-            <p className='font-medium text-sm'>{item.date}</p>
-            <h5 className='font-semibold text-sm py-2 w-145'>{item.des}</h5>
           </div>
-        </div>
-      ))}
-    </div>
-  ))}
-
+        ))}
+      </div>
+    ))}
+  </div>
 </section>
 
        {/* media news  image section ends here */}

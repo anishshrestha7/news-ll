@@ -7,9 +7,9 @@ function Footer() {
 
       <footer className='con text-white border-t-4  border-[#f24d34] relative '>
         <div className=' bg-black/50'>
-          <img className='w-full block md:h-70 sm:h-130' src={logo} alt="" />
+          <img className='xs:w-full block md:h-70 sm:h-130 xs:w-40 xs:h-260' src={logo} alt="" />
         </div>
-        <div className='absolute top-0 left-3 font-normal flex md:grid-cols-4 sm:grid sm:grid-cols-2 justify-between max-w-[1200px]'>
+        <div className='absolute top-0 left-3 font-normal flex md:grid-cols-4 xs:grid lg:grid-cols-4 lg:w-full  sm:grid sm:grid-cols-2 justify-between max-w-[1200px] '>
         <div>
             <p className='font-bold text-sm pt-6 border-b border-gray-400 pb-3 w-55'> THEME FEATURES</p>
           <p className='pt-2 pb-1 font-normal text-sm'>Quas mattis tenetur</p>
@@ -43,9 +43,9 @@ function Footer() {
             <li>Subscribe</li>
           </ul>
         </div>
-        <div>
-            <p className='font-bold text-sm pt-6 border-b border-gray-400 pb-3 w-55'> NEWS LETTER</p>
-          <p className='pt-4 pb-5 font-normal text-sm w-70'>Quas mattis tenetur illo suscipit, eleifend praesentium impedit!</p>
+        <div className=''>
+            <p className='font-bold text-sm pt-6 border-b border-gray-400 pb-3 w-55 '> NEWS LETTER</p>
+          <p className='pt-4 pb-5 font-normal text-sm w-70 md:w-50'>Quas mattis tenetur illo suscipit, eleifend praesentium impedit!</p>
           <form action="">
             <input className='py-3 px-6 bg-white text-black outline-hidden' type="email" placeholder='Enter your email' />
           </form>
@@ -53,7 +53,7 @@ function Footer() {
         </div>
         </div>
       </footer>
-      <section className='con justify-center flex text-white bg-black py-3 text-sm font-medium sm:px-4 sm:text-center'>
+      <section className='con justify-center flex text-white bg-black py-3 text-sm font-medium sm:px-4 sm:text-center '>
         <p>We use cookies to improve our website. By continuing to use this website, you are giving consent to cookies being used.  </p>
       </section>
     </>
