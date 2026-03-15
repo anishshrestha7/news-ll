@@ -130,7 +130,7 @@ function Home() {
     return (
       <div key={item.id} className={`flex xl:flex-row xs:flex-col pb-4 ${borderClass}`}>
         <img 
-          className={`pe-6 w-[70%] ${paddingTop}`} 
+          className={`pe-6 w-[95%] ${paddingTop}`} 
           src={item.image} 
           alt={item.name} 
         />
