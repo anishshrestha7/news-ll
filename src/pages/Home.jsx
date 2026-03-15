@@ -72,10 +72,10 @@ function Home() {
         <div className='flex justify-between items-center md:hidden lg:block lg:flex'>
           <ul className='flex gap-3 pt-4 pb-6 px-2 text-gray-600 font-semibold  items-center'>
           <a className='text-[#f24d34]' href="">Sport</a>
-          <a href="">Business</a>
-          <a href="">money</a>
-          <a href="">World</a>
-          <a href="">Travel</a>
+          <a className='hover:text-[#f24d34]' href="">Business</a>
+          <a className='hover:text-[#f24d34]' href="">money</a>
+          <a className='hover:text-[#f24d34]' href="">World</a>
+          <a className='hover:text-[#f24d34]' href="">Travel</a>
         </ul>
         <div className='pe-4'>
         <button className='border border-gray-400 mx-2 px-1'><i class="fa-solid fa-angle-left"></i></button>

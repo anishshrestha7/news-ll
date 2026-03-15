@@ -29,8 +29,8 @@ function Header() {
             <li className='hover:text-[#F24D34]'><Link to="./">Contact</Link></li>
             <li className='hover:text-[#F24D34]'><Link to="./">Blog</Link></li>
           </ul>
-          <p className='pe-8 cursor-pointer '>
-            <i class="bi bi-search"></i>
+          <p className='pe-8'>
+            <span className='hover:text-[#f24d34] cursor-pointer'><i class="bi bi-search"></i></span>
           </p>
         </div>
        </div>
